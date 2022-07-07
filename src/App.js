@@ -1,6 +1,7 @@
 import './App.css';
 
 import React from 'react';
+import { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +15,22 @@ import Update from './Update';
 import List from './List';
 
 
+
+
+
+
+
+
 export default function App() {
+
+  const [auth, setAuth] = useState();
+
+
+
+
+
+
+
   return (
     <Router>
       <div>
@@ -31,9 +47,6 @@ export default function App() {
             </li>
           </ul>
         </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route exact path="/">
             <Auth />
@@ -41,10 +54,7 @@ export default function App() {
           <Route exact path="/create">
             <Create />
           </Route>
-          <Route exact path="/detail">
-            <Detail />
-          </Route>
-          <Route exact path="/update">
+          <Route exact path="/list/:id">
             <Update />
           </Route>
           <Route exact path="/list">
