@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { signUp } from './services/fetch-utils';
+import { signIn, signUp } from './services/fetch-utils';
 
 
 
@@ -25,7 +25,7 @@ export default function Auth({ setUser }) {
 
     e.preventDefault();
 
-    const user = await signUp(loginEmail, loginPassword);
+    const user = await signIn(loginEmail, loginPassword);
 
     setUser(user);
   }
