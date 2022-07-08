@@ -13,7 +13,7 @@ import Create from './Create';
 import Auth from './Auth';
 import Update from './Update';
 import List from './List';
-
+import { client } from './services/client';
 
 
 
@@ -23,7 +23,7 @@ import List from './List';
 
 export default function App() {
 
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(client.auth.user());
 
 
 
@@ -49,9 +49,7 @@ export default function App() {
             }
           </Route>
           <Route exact path="/create">
-            {
-              !user ? <Auth setUser={setUser} /> : <Redirect to="/create" />
-            }
+            <Create />
           </Route>
           <Route exact path="/list/:id">
             <Update />
