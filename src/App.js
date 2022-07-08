@@ -6,11 +6,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom';
 import Create from './Create';
 import Auth from './Auth';
-import Detail from './Detail';
 import Update from './Update';
 import List from './List';
 
@@ -23,9 +23,7 @@ import List from './List';
 
 export default function App() {
 
-  const [auth, setAuth] = useState();
-
-
+  const [user, setUser] = useState();
 
 
 
@@ -42,17 +40,18 @@ export default function App() {
             <li>
               <Link to="/create">Create</Link>
             </li>
-            <li>
-              <Link to="/list">List</Link>
-            </li>
           </ul>
         </nav>
         <Switch>
           <Route exact path="/">
-            <Auth />
+            {
+              !user ? <Auth setUser={setUser} /> : <Redirect to="/list" />
+            }
           </Route>
           <Route exact path="/create">
-            <Create />
+            {
+              !user ? <Auth setUser={setUser} /> : <Redirect to="/create" />
+            }
           </Route>
           <Route exact path="/list/:id">
             <Update />
