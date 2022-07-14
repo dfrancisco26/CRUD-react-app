@@ -28,6 +28,7 @@ export default function App() {
   async function handleLogoutClick() {
     await logout();
     setUser('');
+
   }
 
 
@@ -56,13 +57,21 @@ export default function App() {
             }
           </Route>
           <Route exact path="/create">
-            <Create />
+            {
+              user ? <Create /> : <Redirect to="/" />
+            }
           </Route>
           <Route exact path="/list/:id">
+            {
+              user ? <Update /> : <Redirect to="/" />
+            }
             <Update />
           </Route>
           <Route exact path="/list">
-            <List />
+            {
+              user ? <List /> : <Redirect to="/" />
+            }
+
           </Route>
         </Switch>
       </div>
