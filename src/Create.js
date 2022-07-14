@@ -1,24 +1,25 @@
 import React from 'react';
 import { useState } from 'react';
 import { createRestaurant } from './services/fetch-utils.js';
-
+import { useHistory } from 'react-router-dom';
 
 export default function Create() {
   const [name, setName] = useState('');
   const [type, setType] = useState('');
   const [signature, setSignature] = useState('');
   const [rating, setRating] = useState(''); 
-
+  const { push } = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const restaurant = {
+    const restaurant = await createRestaurant({
       name: name,
       type: type,
       rating: rating,
       signature: signature
-    };
+    });
+
 
     console.log(restaurant);
 
@@ -27,6 +28,7 @@ export default function Create() {
     setSignature('');
     setRating('');
 
+    push('restaurants');
   }
 
   return (
@@ -43,7 +45,7 @@ export default function Create() {
           <input onChange={e => setSignature(e.target.value)} value={signature}></input>
         </label>
         <label>Rating
-          <input onChange={e => setRating(e.target.value)} value={rating}></input>
+          <input type='number' onChange={e => setRating(e.target.value)} value={rating}></input>
         </label>
         <button>Submit</button>
       </form>
