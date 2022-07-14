@@ -14,7 +14,7 @@ import Auth from './Auth';
 import Update from './Update';
 import List from './List';
 import { client } from './services/client';
-
+import { logout } from './services/fetch-utils';
 
 
 
@@ -25,7 +25,10 @@ export default function App() {
 
   const [user, setUser] = useState(client.auth.user());
 
-
+  async function handleLogoutClick() {
+    await logout();
+    setUser('');
+  }
 
 
 
@@ -41,6 +44,10 @@ export default function App() {
               <Link to="/create">Create</Link>
             </li>
           </ul>
+          <li>
+            {user && 
+          <button onClick={handleLogoutClick}>Logout</button>}
+          </li>
         </nav>
         <Switch>
           <Route exact path="/">
