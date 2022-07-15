@@ -35,6 +35,7 @@ export default function App() {
 
   return (
     <Router>
+      <h1>DRF26</h1>
       <div>
         <nav>
           <ul>
