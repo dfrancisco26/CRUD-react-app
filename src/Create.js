@@ -13,7 +13,7 @@ export default function Create() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const restaurant = await createRestaurant({
+    await createRestaurant({
       name: name,
       type: type,
       rating: rating,
@@ -21,7 +21,7 @@ export default function Create() {
     });
 
 
-    console.log(restaurant);
+
 
     setName('');
     setType('');

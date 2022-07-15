@@ -70,5 +70,5 @@ export async function updateRestaurant(restaurant, id) {
 }
 
 export async function logout() {
-  const { error } = await client.auth.signOut();
+  await client.auth.signOut();
 }
