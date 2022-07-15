@@ -35,7 +35,7 @@ export default function Create() {
     <div>
       <h2>Add a restaurant</h2>
       <form className='add-form' onSubmit={handleSubmit}>
-        <label>Name
+        <label>Name of restaurant
           <input onChange={e => setName(e.target.value)} value={name}></input>
         </label>
         <label>Type
