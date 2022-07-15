@@ -28,7 +28,7 @@ export default function Create() {
     setSignature('');
     setRating('');
 
-    push('restaurants');
+    push('list');
   }
 
   return (

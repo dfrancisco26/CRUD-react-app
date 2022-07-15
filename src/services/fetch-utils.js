@@ -59,7 +59,7 @@ export async function deleteRestaurant(id) {
   return data;
 }
 
-export async function updateBook(restaurant, id) {
+export async function updateRestaurant(restaurant, id) {
   const { data } = await client
     .from('restaurants')
     .update(restaurant)

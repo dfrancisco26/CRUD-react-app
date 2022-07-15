@@ -1,7 +1,7 @@
 import './App.css';
 
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -66,7 +66,6 @@ export default function App() {
             {
               user ? <Update /> : <Redirect to="/" />
             }
-            <Update />
           </Route>
           <Route exact path="/list">
             {
