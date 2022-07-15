@@ -44,7 +44,7 @@ export default function Create() {
         <label>Best Dish
           <input onChange={e => setSignature(e.target.value)} value={signature}></input>
         </label>
-        <label>Rating
+        <label>Rating#
           <input type='number' onChange={e => setRating(e.target.value)} value={rating}></input>
         </label>
         <button>Submit</button>
